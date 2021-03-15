@@ -1,0 +1,28 @@
+default: &defaults
+  parallelism: 1
+  working_directory: $HOME
+
+Blockone_api_tests: &Blockone_api_tests
+  run:
+    name: Running Blockone api  test
+    # Download  docker image cucumberjs & pactumjs. Alternatively, download the  test binary
+    # Mount a volume to access the folder and run the test
+    command: |
+      docker docker pull vinojoy/blockone_vino
+      pwd
+      docker run -i -v $HOME vinojoy/blockone_vino:latest run ./node_modules/.bin/cucumber-js --publish   ./features/stepdefinition/regression.feature
+    # Docker image vinojoy/blockone_vino is public for this test
+version: 2
+jobs:
+  run_cucumber_tests:
+    <<: *defaults
+    machine: true
+    steps:
+      - checkout
+      - *Blockone_api_tests
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - run_cucumber_tests
