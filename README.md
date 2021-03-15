@@ -20,4 +20,4 @@
 
 # Local Setup
 
-> I used VScode as IDE , download from git repo https://github.mheducation.com/VINO-JOY/BlockOne.git , to run locally idealy you can use command .\node_modules\.bin\cucumber-js --publish .\features\stepdefinition\regression.feature to run from home directory
+> I used VScode as IDE , download from git repo https://github.com/vinojoy6/BlockOneV1.git , to run locally idealy you can use command .\node_modules\.bin\cucumber-js --publish .\features\stepdefinition\regression.feature to run from home directory
